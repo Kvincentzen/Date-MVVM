@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Date_MVVM.Model;
 
 namespace Date_MVVM.ViewModel
@@ -11,8 +12,8 @@ namespace Date_MVVM.ViewModel
     {
         private int userid;
         private Person currentPerson;
-        ICommand GetPerson;
-        ICommand SavePerson;
+        private ICommand getPerson;
+        private ICommand savePerson;
         public Person CurrentPerson
         {
             get { return currentPerson; }
@@ -24,6 +25,17 @@ namespace Date_MVVM.ViewModel
                     OnPropertyChanged("currentPerson)");
                 }
             }
+        }
+        public ICommand GetPerson
+        {
+            get
+            {
+                if ()
+            }
+        }
+        public ICommand SavePerson
+        {
+
         }
 
     }

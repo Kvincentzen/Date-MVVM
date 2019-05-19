@@ -10,10 +10,10 @@ namespace Date_MVVM.ViewModel
 {
     class PersonViewModel : ObservableObjects
     {
-        private int userid;
+        private int userId;
         private Person currentPerson;
-        private ICommand getPerson;
-        private ICommand savePerson;
+        private ICommand getPersonCommand;
+        private ICommand savePersonCommand;
         public Person CurrentPerson
         {
             get { return currentPerson; }
@@ -26,17 +26,57 @@ namespace Date_MVVM.ViewModel
                 }
             }
         }
-        public ICommand GetPerson
+        public ICommand SavePersonCommand
         {
             get
             {
-                if ()
+                if (savePersonCommand == null)
+                {
+                    savePersonCommand = new RelayCommand(
+                        param => SavePerson(),
+                        param => (currentPerson != null)
+                        );
+                }
+                return savePersonCommand;
             }
         }
-        public ICommand SavePerson
+        public ICommand GetPersonCommand
         {
-
+            get
+            {
+                if (getPersonCommand == null)
+                {
+                    getPersonCommand = new RelayCommand(
+                        param => GetPerson(),
+                        param => (currentPerson != null)
+                        );
+                }
+                return getPersonCommand;
+            }
+        }
+        public int UserId
+        {
+            get { return userId; }
+            set
+            {
+                if (value != userId)
+                {
+                    userId = value;
+                    OnPropertyChanged("UserId");
+                }
+            }
+        }
+        private void GetPerson()
+        {
+            // You should get the product from the database
+            // but for now we'll just return a new object
         }
 
+        private void SavePerson()
+        {
+            // You would implement your Product save here
+        }
     }
+
+}
 }

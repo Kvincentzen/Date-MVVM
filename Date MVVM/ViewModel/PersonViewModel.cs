@@ -70,6 +70,15 @@ namespace Date_MVVM.ViewModel
         {
             // You should get the product from the database
             // but for now we'll just return a new object
+            Person p = new Person();
+            p.UserId = UserId;
+            p.FName = "Mike";
+            p.LName = "Svendsen";
+            p.Age = 30;
+            p.Height = "200";
+            p.Kilo = "80";
+            p.Sex = 1;
+            CurrentPerson = p;
         }
 
         private void SavePerson()
@@ -77,6 +86,4 @@ namespace Date_MVVM.ViewModel
             // You would implement your Product save here
         }
     }
-
-}
 }

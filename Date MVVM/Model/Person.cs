@@ -16,7 +16,7 @@ namespace Date_MVVM.Model
         private string height;
         private string kilo;
         private int sex;
-        private int userID;
+        private int userId;
         #endregion
         #region properties
         public string FName
@@ -91,14 +91,14 @@ namespace Date_MVVM.Model
                 }
             }
         }
-        public int UserID
+        public int UserId
         {
-            get { return userID; }
+            get { return userId; }
             set
             {
-                if (value != userID)
+                if (value != userId)
                 {
-                    userID = value;
+                    userId = value;
                     OnPropertyChanged("UserID");
                 }
             }

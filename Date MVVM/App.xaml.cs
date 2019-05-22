@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Date_MVVM.Model;
+using Date_MVVM.ViewModel;
 
 namespace Date_MVVM
 {
@@ -17,10 +18,11 @@ namespace Date_MVVM
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
             MainWindow app = new MainWindow();
-            Person viewModel = new Person();
-            app.DataContext = viewModel;
-            //app.Show();
+            PersonViewModel context = new PersonViewModel();
+            app.DataContext = context;
+            app.Show();
         }
     }
 }

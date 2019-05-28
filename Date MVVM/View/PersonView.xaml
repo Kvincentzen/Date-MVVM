@@ -1,7 +1,10 @@
-﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Date_MVVM.Model">
-    <DataTemplate DataType="{x:Type local:Person}">
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:local="clr-namespace:Date_MVVM.Model"
+                    xmlns:local2="clr-namespace:Date_MVVM.ViewModel">
+    <DataTemplate DataType="{x:Type local:PersonModel}">
         <Border BorderBrush="Black" BorderThickness="1" Padding="20">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -35,8 +38,24 @@
                 <TextBlock Grid.Column="0" Grid.Row="5"  Text="Alder" VerticalAlignment="Center" />
                 <TextBox Grid.Row="5" Grid.Column="1"  Text="{Binding Sex}" />
 
-
             </Grid>
         </Border>
     </DataTemplate>
-</Window>
+    <DataTemplate DataType="{x:Type local2:PersonViewModel}">
+        <DockPanel Margin="20">
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock Margin="10,2" DockPanel.Dock="Left" Text="Enter Product Id" VerticalAlignment="Center" />
+
+                <TextBox Margin="10,2" Width="50" VerticalAlignment="Center" Text="{Binding Path=UserId, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button Content="Save Product" DockPanel.Dock="Right" Margin="10,2" VerticalAlignment="Center"
+                        Command="{Binding Path=SavePersonCommand}" Width="100" />
+
+                <Button Content="Get Product" DockPanel.Dock="Right" Margin="10,2" VerticalAlignment="Center"
+                        Command="{Binding Path=GetPersonCommand}" IsDefault="True" Width="100" />
+            </DockPanel>
+
+            <ContentControl Margin="10" Content="{Binding Path=CurrentProduct}" />
+        </DockPanel>
+    </DataTemplate>
+</ResourceDictionary>

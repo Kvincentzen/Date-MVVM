@@ -58,10 +58,6 @@
     <Compile Include="View\SearchProfil.xaml.cs">
       <DependentUpon>SearchProfil.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\PersonView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,7 +68,7 @@
     </Compile>
     <Compile Include="app\DataContext.cs" />
     <Compile Include="Model\ObservableObjects.cs" />
-    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\PersonModel.cs" />
     <Compile Include="Model\SearchProfil.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
@@ -81,6 +77,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\PersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SearchProfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +112,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Person\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,12 +8,15 @@ using Date_MVVM.Model;
 
 namespace Date_MVVM.ViewModel
 {
-    class PersonViewModel : ObservableObjects
+    public class PersonViewModel : ObservableObjects
     {
+        #region fields
         private int userId;
         private Person currentPerson;
         private ICommand getPersonCommand;
         private ICommand savePersonCommand;
+        #endregion
+        #region properties
         public Person CurrentPerson
         {
             get { return currentPerson; }
@@ -22,7 +25,7 @@ namespace Date_MVVM.ViewModel
                 if (value != currentPerson)
                 {
                     currentPerson = value;
-                    OnPropertyChanged("currentPerson)");
+                    OnPropertyChanged("CurrentPerson)");
                 }
             }
         }
@@ -47,7 +50,7 @@ namespace Date_MVVM.ViewModel
                 if (getPersonCommand == null)
                 {
                     getPersonCommand = new RelayCommand(
-                        param => GetPerson(),
+                        param => UserInfo(),
                         param => (currentPerson != null)
                         );
                 }
@@ -66,10 +69,10 @@ namespace Date_MVVM.ViewModel
                 }
             }
         }
-        private void GetPerson()
+        #endregion
+        #region methods
+        private void UserInfo()
         {
-            // You should get the product from the database
-            // but for now we'll just return a new object
             Person p = new Person();
             p.UserId = UserId;
             p.FName = "Mike";
@@ -80,10 +83,8 @@ namespace Date_MVVM.ViewModel
             p.Sex = 1;
             CurrentPerson = p;
         }
-
         private void SavePerson()
-        {
-            // You would implement your Product save here
-        }
+        { }
+        #endregion
     }
 }

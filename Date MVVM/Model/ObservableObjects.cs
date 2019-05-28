@@ -20,8 +20,6 @@ namespace Date_MVVM.Model
                 this.PropertyChanged(this, e);
             }
         }
-        //[Conditional("Debug")]
-        //[DebuggerStepThrough]
         public virtual void VerifyPropertyName(string propertyName)
         {
             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
@@ -36,6 +34,5 @@ namespace Date_MVVM.Model
             }
         }
         protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
-
     }
 }
